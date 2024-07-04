@@ -1,6 +1,6 @@
 "use client";
 import { Cascader } from "antd";
-import type { SingleCascaderProps } from "antd/es/cascader";
+import type { CascaderProps } from "antd/es/cascader";
 
 export default function MyCascader() {
   interface Option {
@@ -44,7 +44,7 @@ export default function MyCascader() {
     },
   ];
 
-  const onChange: SingleCascaderProps<Option>["onChange"] = (value) => {
+  const onChange: CascaderProps<Option>["onChange"] = (value) => {
     console.log(value);
   };
 
@@ -53,5 +53,5 @@ export default function MyCascader() {
     return labels[labels.length - 1];
   };
 
-  return <Cascader options={options} expandTrigger="hover" displayRender={displayRender} onChange={onChange} />;
+  return <Cascader placeholder="请选择" options={options} expandTrigger="hover" displayRender={displayRender} onChange={onChange} />;
 }

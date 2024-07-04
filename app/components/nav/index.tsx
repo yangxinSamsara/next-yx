@@ -6,30 +6,29 @@ import { cn } from "@/app/utils/cn";
 export default function Nav() {
   const pathname = usePathname();
 
+  const navs = [
+    { name: "about", path: "/about" },
+    { name: "antd", path: "/antd" },
+    { name: "svg", path: "/svg" },
+    { name: "react-query", path: "/react-query" },
+    { name: "headless-ui", path: "/headless-ui" },
+    { name: "shadcn-ui", path: "/shadcn-ui" },
+  ];
+
   return (
     <header className="flex items-center justify-center h-10">
       <ul className="flex items-center">
-        <li
-          className={cn("mr-2 hover:text-blue-500 hover:underline", {
-            "text-blue-300": pathname !== "/about",
-            "text-blue-700": pathname === "/about",
-          })}
-        >
-          <Link href="/about">about</Link>
-        </li>
-        <li  className={cn("mr-2 hover:text-blue-500 hover:underline", {
-            "text-blue-300": pathname !== "/antd",
-            "text-blue-700": pathname === "/antd",
-          })}>
-          <Link href="/antd">antd</Link>
-        </li>
-
-        <li  className={cn("mr-2 hover:text-blue-500 hover:underline", {
-            "text-blue-300": pathname !== "/svg",
-            "text-blue-700": pathname === "/svg",
-          })}>
-          <Link href="/svg">svg</Link>
-        </li>
+        {navs.map((nav) => (
+          <li
+            key={nav.name}
+            className={cn("mr-2 hover:text-blue-500 hover:underline", {
+              "text-blue-300": pathname !== nav.path,
+              "text-blue-700": pathname === nav.path,
+            })}
+          >
+            <Link href={nav.path}>{nav.name}</Link>
+          </li>
+        ))}
       </ul>
     </header>
   );
