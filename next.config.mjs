@@ -24,6 +24,14 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "oss-xpc6.xpccdn.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
