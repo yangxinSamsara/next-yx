@@ -10,6 +10,7 @@ import zhCN from "antd/lib/locale/zh_CN";
 import { getQueryClient } from "./get-query-client";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { type ThemeProviderProps } from "next-themes/dist/types";
+import { Toaster } from "@/components/ui/toaster";
 
 dayjs.locale("zh-cn");
 const ZhCNLocale: typeof zhCN = zhCN;
@@ -27,6 +28,7 @@ export default function Providers({ children, ...props }: ThemeProviderProps) {
         <ConfigProvider locale={ZhCNLocale}>
           <QueryClientProvider client={queryClient}>
             {children}
+            <Toaster />
             <ReactQueryDevtools initialIsOpen={false} />
           </QueryClientProvider>
         </ConfigProvider>

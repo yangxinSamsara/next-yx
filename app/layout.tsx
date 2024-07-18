@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Nav from "./components/nav";
-import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,14 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <Providers attribute="class" defaultTheme='system' enableSystem disableTransitionOnChange>
-          <div className="min-h-screen flex flex-col">
-            <Nav />
-            <main className="flex-auto">{children}</main>
-          </div>
-        </Providers>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

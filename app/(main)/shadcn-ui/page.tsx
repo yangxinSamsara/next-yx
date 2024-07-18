@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "../components/shadcn/toggle";
-import { PopoverDemo } from "../components/shadcn/popover";
-import { SelectDemo } from "../components/shadcn/select";
-import { DropdownMenuDemo } from "../components/shadcn/dropdown";
+import { ModeToggle } from "@/components/shadcn/toggle";
+import { PopoverDemo } from "@/components/shadcn/popover";
+import { SelectDemo } from "@/components/shadcn/select";
+import { DropdownMenuDemo } from "@/components/shadcn/dropdown";
 
 export default function ShadcnPage() {
   return (

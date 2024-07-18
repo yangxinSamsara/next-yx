@@ -1,6 +1,6 @@
 import { Button, DatePicker } from "antd";
 import React from "react";
-import MyCascader from "../components/antd/cascader";
+import MyCascader from "@/components/antd/cascader";
 
 export default function AboutPage() {
   return (
