@@ -1,8 +1,8 @@
 import Image from "next/image";
-import RankStaffPicks from "../assets/icons/rank-staff-picks.svg?url";
-import RankType from "../assets/icons/rank-type-icon.svg?url";
-import Tv from "../assets/icons/tv.svg?url";
-import XpcPicks from "../assets/icons/xpc-picks.svg";
+import RankStaffPicks from "@/app/assets/icons/rank-staff-picks.svg?url";
+import RankType from "@/app/assets/icons/rank-type-icon.svg?url";
+import Tv from "@/app/assets/icons/tv.svg?url";
+import XpcPicks from "@/app/assets/icons/xpc-picks.svg";
 import Svgs from "@/components/svg/svgs";
 
 export default function SvgPage() {
