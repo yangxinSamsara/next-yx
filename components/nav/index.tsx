@@ -6,10 +6,9 @@ import Image from "next/image";
 import path from "path";
 export default function Nav() {
   let pathname = usePathname();
-  pathname = pathname === "/" ? "/home" : pathname;
 
   const navs = [
-    { name: "home", path: "/home" },
+    { name: "home", path: "/" },
     { name: "about", path: "/about" },
     { name: "antd", path: "/antd" },
     { name: "svg", path: "/svg" },

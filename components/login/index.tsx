@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/components/ui/use-toast";
-import GithubButton from "@/components/login/github-button";
 
 const schema = z.object({
   email: z.string().email({ message: "Invalid 邮箱" }),
@@ -33,8 +32,8 @@ export default function ReactHookFormPage() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen w-screen">
-      <div className="flex flex-col items-center w-1/2 min-w-80 max-w-[500px]">
+    <div className="flex items-center justify-center w-full">
+      <div className="flex flex-col items-center w-full">
         <h2 className="text-2xl font-bold">Login Form</h2>
         <Separator className="my-6" />
         <Form {...form}>
@@ -65,7 +64,9 @@ export default function ReactHookFormPage() {
                 </FormItem>
               )}
             />
-            <Button type="submit">Submit</Button>
+            <Button className="w-full" type="submit">
+              Submit
+            </Button>
           </form>
         </Form>
         <div className="flex items-center space-x-4 py-6 w-full">
@@ -74,7 +75,6 @@ export default function ReactHookFormPage() {
           <Separator className="flex-1" />
         </div>
       </div>
-      <GithubButton />
     </div>
   );
 }

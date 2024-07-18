@@ -1,20 +1,16 @@
-import { Button } from "@/components/ui/button";
-import { signIn } from "../api/auth/[...nextauth]/route";
+import { auth } from "@/auth";
+import LoginComponent from "@/components/login";
+import { SessionProvider } from "next-auth/react";
+import GithubButton from "@/components/login/github-button";
 
-export default function LoginPage({}) {
+export default async function LoginPage({}) {
+  const session = await auth();
   return (
-    <main>
-      <div className="flex min-h-screen gap-3  items-center  justify-center">
-        <form
-          action={async () => {
-            "use server";
-            // 登录完成后，重定向到user页面
-            await signIn("github", { redirectTo: "/" });
-          }}
-        >
-          <Button>github登录</Button>
-        </form>
-      </div>
+    <main className="flex flex-col items-center p-10 min-w-[320px] max-w-[500px]  mx-auto">
+      <SessionProvider session={session}>
+        <LoginComponent />
+        <GithubButton />
+      </SessionProvider>
     </main>
   );
 }
