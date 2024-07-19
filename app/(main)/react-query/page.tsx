@@ -1,7 +1,8 @@
 "use client";
-import { Button, List, Spin, message } from "antd";
+import { Button, Spin, message } from "antd";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { getQueryClient } from "@/app/get-query-client";
+import ReactQueryComponent from "@/components/react-query";
 
 async function getPosts() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=10");
@@ -60,18 +61,7 @@ export default function ReactQueryPage() {
       >
         add post
       </Button>
-      {data && (
-        <List
-          className="w-full"
-          itemLayout="horizontal"
-          dataSource={data.reverse()}
-          renderItem={(item) => (
-            <List.Item>
-              <List.Item.Meta title={item.id + ". " + item.title} description={item.body} />
-            </List.Item>
-          )}
-        />
-      )}
+      {data && <ReactQueryComponent data={data} />}
     </main>
   );
 }

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/app/utils/cn";
 import Image from "next/image";
-import path from "path";
+import { ModeToggle } from "@/components/shadcn/toggle";
 export default function Nav() {
   let pathname = usePathname();
 
@@ -19,22 +19,24 @@ export default function Nav() {
   ];
 
   return (
-    <header className="flex items-center justify-between p-5 bg-gray-100">
+    <header className="sticky top-0 z-50 w-full border-border/40 bg-background/90 backdrop-blur-md flex items-center justify-between p-5 shadow-">
       <Image className="relative" src="/next.svg" alt="Next.js Logo" width={150} height={30} priority />
       <ul className="flex items-center">
         {navs.map((nav) => (
           <li
             key={nav.name}
-            className={cn("mr-2 hover:text-black hover:font-bold hover:underline", {
-              "text-black font-normal": pathname !== nav.path,
-              "text-black font-bold": pathname === nav.path,
+            className={cn("mr-2 hover:text-foreground/80 hover:underline", {
+              "text-foreground/60": pathname !== nav.path,
+              "text-foreground": pathname === nav.path,
             })}
           >
             <Link href={nav.path}>{nav.name}</Link>
           </li>
         ))}
       </ul>
-      <div></div>
+      <div>
+        <ModeToggle />
+      </div>
     </header>
   );
 }
