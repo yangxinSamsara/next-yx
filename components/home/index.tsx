@@ -9,6 +9,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Session } from "next-auth";
+import Link from "next/link";
 export default function Home({ session }: { session: Session | null }) {
   console.log("🚀 ~ Home ~ session:", session);
   const [open, setOpen] = useState(false);
@@ -26,6 +27,11 @@ export default function Home({ session }: { session: Session | null }) {
     <>
       <h3>Wellcome to HomePage</h3>
       <pre>{session?.user ? JSON.stringify(session?.user, null, 2) : "no session"}</pre>
+      {session?.user ? null : (
+        <Button>
+          <Link href={"/login"}>go to login</Link>
+        </Button>
+      )}
       <Separator className="my-4" />
       <Button className="my-4" onClick={getApiData}>
         Get Api data

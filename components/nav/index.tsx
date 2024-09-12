@@ -16,6 +16,7 @@ export default function Nav() {
     { name: "headless-ui", path: "/headless-ui" },
     { name: "shadcn-ui", path: "/shadcn-ui" },
     { name: "react-hook-form", path: "/react-hook-form" },
+    { name: "ssg", path: "/ssg" },
   ];
 
   return (

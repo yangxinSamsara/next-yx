@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 import webpack from "webpack";
+import { codeInspectorPlugin } from "code-inspector-plugin";
 const nextConfig = {
-  webpack(config) {
+  webpack(config, { dev, isServer }) {
     const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.(".svg"));
     config.module.rules.push(
       // Reapply the existing rule, but only for svg imports ending in ?url
@@ -18,9 +19,11 @@ const nextConfig = {
         use: ["@svgr/webpack"],
       }
     );
-
     // Modify the file loader rule to ignore *.svg, since we have it handled now.
     fileLoaderRule.exclude = /\.svg$/i;
+
+    // 同时按住 [shift + ⌥option] 时启用 inspector 功能(点击页面元素可定位至编辑器源代码)
+    // config.plugins.push(codeInspectorPlugin({ bundler: "webpack" }));
 
     return config;
   },
@@ -28,7 +31,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "oss-xpc6.xpccdn.com",
+        hostname: "*",
       },
     ],
   },
