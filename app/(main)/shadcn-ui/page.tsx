@@ -7,7 +7,7 @@ export default function ShadcnPage() {
   return (
     <div className="flex">
       <div className="flex space-y-2 flex-col w-50 mx-auto">
-        <Button>Shadcn Ui Button</Button>
+        <Button variant="outline">Shadcn Ui Button</Button>
         <PopoverDemo />
         <SelectDemo />
         <DropdownMenuDemo />
