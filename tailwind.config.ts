@@ -10,6 +10,9 @@ const config = {
 	],
   prefix: "",
   theme: {
+    fontFamily: {
+      alimama: ["alimama"],
+    },
     container: {
       center: true,
       padding: "2rem",

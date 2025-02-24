@@ -25,7 +25,7 @@ export default function Home({ session }: { session: Session | null }) {
   };
   return (
     <>
-      <h3>Wellcome to HomePage</h3>
+      <h3 className="font-alimama">Wellcome to HomePage(阿里妈妈字体)</h3>
       <pre>{session?.user ? JSON.stringify(session?.user, null, 2) : "no session"}</pre>
       {session?.user ? null : (
         <Button>

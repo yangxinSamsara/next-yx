@@ -4,7 +4,6 @@ import { NextRequest, NextResponse } from "next/server";
 // 中间件处理逻辑
 export default function middleware(req: NextRequest) {
   const allCookie = req.cookies.getAll();
-  console.log("🚀 ~ file: middleware.ts:8 ~ middleware ~ cookie:", allCookie);
 
   const response = NextResponse.next();
 

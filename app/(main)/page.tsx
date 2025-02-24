@@ -5,6 +5,7 @@ import Image from "next/image";
 import Img1 from "./movies.png";
 
 export default async function HomePage() {
+  console.log("HomePage");
   const session = await auth();
   return (
     <main className="flex flex-col items-center p-10">

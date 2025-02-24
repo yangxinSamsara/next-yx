@@ -6,6 +6,7 @@ export default function MainLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log("MainLayout");
   return (
     <Providers attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
       <div className="min-h-screen flex flex-col">
